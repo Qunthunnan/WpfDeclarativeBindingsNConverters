@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfDeclarativeBindings.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDeclarativeBindings"
+        mc:Ignorable="d"
+        Title="Declarative Bindings" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Orientation="Horizontal"
+            Background="LightGray">
+            <Slider
+                x:Name="slider"
+                Minimum="0"
+                Maximum="100"
+                TickFrequency="1"
+                IsSnapToTickEnabled="True"
+                Width="250"
+                Style="{StaticResource ControlStyle}"
+                ></Slider>
+            <TextBox
+                Width="250"
+                Style="{StaticResource ControlStyle}"
+                Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                ></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>
