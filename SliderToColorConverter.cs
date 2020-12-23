@@ -15,21 +15,16 @@ namespace WpfDeclarativeBindings
         {
             double sliderValue = (double)value;
             Color color = Colors.Black;
-            if (sliderValue >= 0 && sliderValue < 25)
+            if (sliderValue<=50)
             {
-                color = Colors.Orange;
+                color.R = (byte)(sliderValue * 5.1);
+                color.B = 255;
             }
-            else if (sliderValue >= 25 && sliderValue < 50)
+
+            if (sliderValue>50)
             {
-                color = Colors.OrangeRed;
-            }
-            else if (sliderValue >= 50 && sliderValue < 75)
-            {
-                color = Colors.Red;
-            }
-            else if (sliderValue >= 75 && sliderValue <= 100)
-            {
-                color = Colors.DarkRed;
+                color.B = (byte)(255-((sliderValue-50) * 5.1));
+                color.R = 255;
             }
             return color;
         }
