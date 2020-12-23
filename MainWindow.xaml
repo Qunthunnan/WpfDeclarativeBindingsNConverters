@@ -52,8 +52,8 @@
             >
             <TextBlock.Foreground>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="Red" Offset="{Binding ElementName=slider, Path=Value, Converter={StaticResource stoConverter}}"/>
-                    <GradientStop Color="DarkBlue" Offset="1"/>
+                    <GradientStop Color="Red" Offset="{Binding ElementName=slider, Path=Value, Converter={StaticResource stoConverter}, ConverterParameter=Red}"/>
+                    <GradientStop Color="DarkBlue" Offset="{Binding ElementName=slider, Path=Value, Converter={StaticResource stoConverter}, ConverterParameter=DarkBlue}"/>
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>

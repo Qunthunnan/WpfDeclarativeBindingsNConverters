@@ -12,7 +12,17 @@ namespace WpfDeclarativeBindings
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((double)value) / 100 - 0.5;
+            if (parameter.ToString()=="Red")
+            {
+                return ((double)value) / 100 -0.5; 
+            }
+
+            if (parameter.ToString()=="DarkBlue")
+            {
+                return ((double)value) / 100 + 0.5;
+            }
+
+            return 0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
